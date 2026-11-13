@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1550" height="940" viewBox="0 0 1550 940" role="img" aria-labelledby="titre description">
+  <title id="titre">Diagramme du modèle de JeuFarmerEcoPlus</title>
+  <desc id="description">Une exploitation possède neuf parcelles distinctes. Chaque parcelle référence au plus une espèce active et conserve au plus une dernière espèce. Le catalogue partage ses espèces entre les parcelles.</desc>
+  <defs>
+    <marker id="fleche" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#24364b" stroke-width="1.5"/></marker>
+  </defs>
+  <style>
+    text { font-family: Consolas, monospace; font-size: 18px; fill: #172b40; }
+    .titre { font-family: sans-serif; font-size: 28px; font-weight: bold; }
+    .classe { font-size: 24px; font-weight: bold; }
+    .boite { fill: white; stroke: #24364b; stroke-width: 2; }
+    .lien { fill: none; stroke: #24364b; stroke-width: 2; }
+  </style>
+  <rect width="1550" height="940" fill="#f3f7f3"/>
+  <text x="30" y="45" class="titre">JeuFarmerEcoPlus — modèle</text>
+  <rect x="30" y="90" width="480" height="570" rx="8" class="boite"/>
+  <text x="50" y="126" class="classe">Exploitation</text>
+  <path d="M30 145 H510 M30 285 H510" class="lien"/>
+  <text x="50" y="178"><tspan x="50">argent : int (euros)</tspan><tspan x="50" dy="30">eau : int (m³)</tspan><tspan x="50" dy="30">nourriture : int (kg)</tspan><tspan x="50" dy="30">grille : list[list[Parcelle]]</tspan></text>
+  <text x="50" y="320"><tspan x="50">__init__()</tspan><tspan x="50" dy="36">get_parcelle(x, y) : Parcelle</tspan><tspan x="50" dy="36">planter(x, y, espece)</tspan><tspan x="50" dy="36">arroser(x, y, quantite)</tspan><tspan x="50" dy="36">recolter(x, y) : int</tspan><tspan x="50" dy="36">avancer_saison() : list[tuple]</tspan><tspan x="50" dy="36">objectif_atteint(cible) : bool</tspan><tspan x="50" dy="36">vendre_nourriture(quantite) : int</tspan></text>
+  <rect x="565" y="90" width="450" height="610" rx="8" class="boite"/>
+  <text x="585" y="126" class="classe">Parcelle</text>
+  <path d="M565 145 H1015 M565 435 H1015" class="lien"/>
+  <text x="585" y="178"><tspan x="585">x : int</tspan><tspan x="585" dy="30">y : int</tspan><tspan x="585" dy="30">espece : Espece ou None</tspan><tspan x="585" dy="30">croissance : int (saisons)</tspan><tspan x="585" dy="30">humidite : int (%)</tspan><tspan x="585" dy="30">azote : int (%)</tspan><tspan x="585" dy="30">biodiversite : int (%)</tspan><tspan x="585" dy="30">derniere_espece : Espece ou None</tspan></text>
+  <text x="585" y="470"><tspan x="585">__init__(x, y)</tspan><tspan x="585" dy="31">est_libre() : bool</tspan><tspan x="585" dy="31">planter(espece)</tspan><tspan x="585" dy="31">arroser(quantite)</tspan><tspan x="585" dy="31">avancer_saison() : str ou None</tspan><tspan x="585" dy="31">est_mature() : bool</tspan><tspan x="585" dy="31">recolter() : int</tspan></text>
+  <rect x="1070" y="90" width="450" height="430" rx="8" class="boite"/>
+  <text x="1090" y="126" class="classe">Espece</text>
+  <path d="M1070 145 H1520 M1070 375 H1520" class="lien"/>
+  <text x="1090" y="178"><tspan x="1090">nom : str</tspan><tspan x="1090" dy="28">duree_croissance : int (saisons)</tspan><tspan x="1090" dy="28">prix_graine : int (euros/parcelle)</tspan><tspan x="1090" dy="28">rendement : int (kg/parcelle)</tspan><tspan x="1090" dy="28">eau_min : int (%)</tspan><tspan x="1090" dy="28">azote_min : int (%)</tspan><tspan x="1090" dy="28">impact_azote : int (points)</tspan></text>
+  <text x="1090" y="410"><tspan x="1090">__init__(nom, duree_croissance,</tspan><tspan x="1090" dy="28">  prix_graine, rendement, eau_min,</tspan><tspan x="1090" dy="28">  azote_min, impact_azote)</tspan></text>
+  <path d="M270 660 L280 675 L270 690 L260 675 Z" fill="#24364b"/>
+  <path d="M270 690 V795 H785 V700" class="lien"/>
+  <text x="290" y="720">1</text><text x="800" y="730">9</text>
+  <text x="310" y="780">possède (composition)</text>
+  <path d="M1015 235 H1070" class="lien" marker-end="url(#fleche)"/>
+  <text x="1090" y="560">0..* parcelles → 0..1 espèce active</text>
+  <text x="1090" y="590">référence : espece</text>
+  <path d="M950 700 V865 H1490 V520" class="lien" marker-end="url(#fleche)"/>
+  <text x="990" y="850">derniere_espece : 0..1</text>
+  <text x="30" y="912">Grille : x = colonne, y = ligne (1 à 3). Les objets Espece sont partagés ; la croissance reste dans Parcelle.</text>
+</svg>
